@@ -15,6 +15,10 @@ public class Libro {
 
     private String description;
 
+    private String url;
+
+    private String image;
+
 
     public Integer getId() {
         return id;
@@ -40,4 +44,19 @@ public class Libro {
         this.description = description;
     }
 
+    public String getUrl() {
+        return url;
+    }
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getImage() {
+        return image;
+    }
+    public void setImage(String image) {
+        this.image = image;
+    }
 }
+
+

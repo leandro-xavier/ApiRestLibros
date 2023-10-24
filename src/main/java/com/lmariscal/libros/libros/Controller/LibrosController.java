@@ -3,10 +3,9 @@ package com.lmariscal.libros.libros.Controller;
 import com.lmariscal.libros.libros.Entidades.Libro;
 import com.lmariscal.libros.libros.Service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/books")
@@ -14,8 +13,16 @@ import org.springframework.web.bind.annotation.RestController;
 public class LibrosController {
     @Autowired
     private BookService librosService;
-    @RequestMapping(value= "/saveBook", method = RequestMethod.POST)
+   @RequestMapping(value= "/saveBook", method = RequestMethod.POST)
     public Boolean saveLibro(@RequestBody Libro u){
-        return librosService.saveLibro(u);
+      return librosService.saveLibro(u);
     }
+
+
+    @GetMapping("/allBook")
+    public List<Libro> allBooks() {
+        return librosService.findAllBooks();
+    }
+
+
 }
